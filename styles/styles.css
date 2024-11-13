@@ -179,7 +179,7 @@ button {
 .on-off-1 {
     padding: 10px 20px;
     background-color: transparent;
-    border: 1px solid transparent;
+    border: none;
     border-radius: 10px;
 }
 

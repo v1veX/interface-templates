@@ -8,17 +8,17 @@ class OnOffButton1 {
         enabled : 'enabled',
     };
 
-    constructor(isEnabled = false) {
-        this.buttonElement = document.querySelector('[data-js-on-off-1]');
+    constructor(selector, isEnabled = false) {
+        this.buttonElement = document.querySelector(selector);
 
-        this.isEnabled = isEnabled;
-
-        this.setInitialState();
+        this.setInitialState(isEnabled);
 
         this.bindEvents();
     }
 
-    setInitialState() {
+    setInitialState(isEnabled) {
+        this.isEnabled = isEnabled;
+
         this.buttonElement.classList.add(
             this.isEnabled
             ? this.states.enabled
@@ -38,4 +38,4 @@ class OnOffButton1 {
     }
 }
 
-new OnOffButton1();
+new OnOffButton1('[data-js-on-off-1]');
