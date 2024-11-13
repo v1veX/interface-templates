@@ -190,3 +190,20 @@ button {
 .on-off-1.enabled {
     background-color: #6fe348;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.on-off-2 {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+}
+
+.on-off-2.disabled {
+    background-color: #e34848;
+}
+
+.on-off-2.enabled {
+    background-color: #6fe348;
+}
