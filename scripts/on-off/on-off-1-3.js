@@ -39,3 +39,5 @@ class OnOffButton1 {
 }
 
 new OnOffButton1('[data-js-on-off-1]');
+
+new OnOffButton1('[data-js-on-off-3]');

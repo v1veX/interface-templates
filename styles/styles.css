@@ -207,3 +207,49 @@ button {
 .on-off-2.enabled {
     background-color: #6fe348;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.on-off-3 {
+    --switchHeight: 30px;
+    --switchBorderWidth: 1px;
+
+    position: relative;
+    width: 55px;
+    height: var(--switchHeight);
+    padding: 0;
+    background-color: transparent;
+    border: var(--switchBorderWidth) solid grey;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.on-off-3.disabled {
+    background-color: lightgray;
+}
+
+.on-off-3.enabled {
+    background-color: #6fe348;
+}
+
+.on-off-3-thumb {
+    --thumbOffset: 2px;
+    --thumbSize: calc(var(--switchHeight) - (var(--thumbOffset) + var(--switchBorderWidth)) * 2);
+
+    position: absolute;
+    top: var(--thumbOffset);
+    height: var(--thumbSize);
+    aspect-ratio: 1;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px gray;
+    transition: left 0.3s;
+}
+
+.on-off-3.disabled .on-off-3-thumb {
+    left: var(--thumbOffset);
+}
+
+.on-off-3.enabled .on-off-3-thumb {
+    left: calc(100% - var(--thumbSize) - var(--thumbOffset));
+}
