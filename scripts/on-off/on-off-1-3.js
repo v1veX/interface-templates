@@ -1,40 +1,50 @@
 class OnOffButton1 {
-    buttonElement = null;
+    _buttonElement = null;
 
-    isEnabled = null;
+    _isEnabled = null;
 
-    states = {
+    _states = {
         disabled :'disabled',
         enabled : 'enabled',
     };
 
     constructor(selector, isEnabled = false) {
-        this.buttonElement = document.querySelector(selector);
+        this._buttonElement = document.querySelector(selector);
 
-        this.setInitialState(isEnabled);
+        this._setInitialState(isEnabled);
 
-        this.bindEvents();
+        this._bindEvents();
     }
 
-    setInitialState(isEnabled) {
-        this.isEnabled = isEnabled;
+    _setInitialState(isEnabled) {
+        this._isEnabled = isEnabled;
 
-        this.buttonElement.classList.add(
-            this.isEnabled
-            ? this.states.enabled
-            : this.states.disabled
+        this._buttonElement.classList.add(
+            this._isEnabled
+            ? this._states.enabled
+            : this._states.disabled
         );
     }
 
-    onClick = () => {
-        this.buttonElement.classList.toggle(this.states.disabled, this.isEnabled);
-        this.buttonElement.classList.toggle(this.states.enabled, !this.isEnabled);
+    /**
+     * [Public]
+     * 
+     * Changes state of the button.
+     * @param {boolean} enable sets when it needs to set exact state. 
+    */
+    changeState(enable = !this._isEnabled) {
+        this._buttonElement.classList.toggle(this._states.disabled, !enable);
+        this._buttonElement.classList.toggle(this._states.enabled, enable);
     
-        this.isEnabled = !this.isEnabled;
+        this._isEnabled = enable;
     }
 
-    bindEvents() {
-        this.buttonElement.addEventListener('click', this.onClick);
+    _onClick = () => {
+        this.changeState();
+    }
+
+    _bindEvents() {
+        this._buttonElement.addEventListener('click', this._onClick);
     }
 }
 

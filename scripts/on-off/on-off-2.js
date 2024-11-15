@@ -1,64 +1,74 @@
+// Можно модифицировать, унаследовавшись от класса OnOffButton1
+// (Именно так я бы поступил в реальном проекте) 
+
 class OnOffButton2 {
-    buttonElement = null;
+    _buttonElement = null;
 
-    isEnabled = null;
+    _isEnabled = null;
 
-    states = {
+    _states = {
         disabled :'disabled',
         enabled : 'enabled',
     };
 
-    stateTexts = {
+    _stateTexts = {
         disabled : null,
         enabled : null,
     }
 
     constructor(selector, isEnabled = false, disabledText = 'Выключено', enabledText = 'Включено') {
-        this.buttonElement = document.querySelector(selector);
+        this._buttonElement = document.querySelector(selector);
 
-        this.setInitialState(disabledText, enabledText, isEnabled);
+        this._setInitialState(disabledText, enabledText, isEnabled);
 
-        this.bindEvents();
+        this._bindEvents();
     }
 
-    setText() {
-        this.buttonElement.textContent = this.isEnabled
-        ? this.stateTexts.enabled
-        : this.stateTexts.disabled
+    _setText() {
+        this._buttonElement.textContent = this._isEnabled
+        ? this._stateTexts.enabled
+        : this._stateTexts.disabled
     }
 
-    setInitialState(disabledText, enabledText, isEnabled) {
-        this.stateTexts.disabled = disabledText;
-        this.stateTexts.enabled = enabledText;
+    _setInitialState(disabledText, enabledText, isEnabled) {
+        this._stateTexts.disabled = disabledText;
+        this._stateTexts.enabled = enabledText;
 
-        this.isEnabled = isEnabled;
+        this._isEnabled = isEnabled;
 
-        this.buttonElement.classList.add(
-            this.isEnabled
-            ? this.states.enabled
-            : this.states.disabled
+        this._buttonElement.classList.add(
+            this._isEnabled
+            ? this._states.enabled
+            : this._states.disabled
         );
 
-        this.setText();
+        this._setText();
     }
 
-    onClick = () => {
-        this.buttonElement.classList.toggle(this.states.disabled, this.isEnabled);
-        this.buttonElement.classList.toggle(this.states.enabled, !this.isEnabled);
+    /**
+     * [Public]
+     * 
+     * Changes state of the button.
+     * @param {boolean} enable sets when it needs to set exact state. 
+    */
+    changeState(enable = !this._isEnabled) {
+        this._buttonElement.classList.toggle(this._states.disabled, !enable);
+        this._buttonElement.classList.toggle(this._states.enabled, enable);
     
-        this.isEnabled = !this.isEnabled;
+        this._isEnabled = enable;
 
-        this.setText();
+        this._setText();
     }
 
-    bindEvents() {
-        this.buttonElement.addEventListener('click', this.onClick);
+    _onClick = () => {
+        this.changeState();
+    }
+
+    _bindEvents() {
+        this._buttonElement.addEventListener('click', this._onClick);
     }
 }
 
 new OnOffButton2(
-    '[data-js-on-off-2]',
-    false,
-    'Автосохранение: выкл',
-    'Автосохранение: вкл'
+    '[data-js-on-off-2]'
 );
