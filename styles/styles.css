@@ -214,6 +214,10 @@ button {
     --switchHeight: 30px;
     --switchBorderWidth: 1px;
 
+    --thumbOffset: 2px;
+    --thumbSize: calc(var(--switchHeight) - (var(--thumbOffset) + var(--switchBorderWidth)) * 2);
+    --thumbLeft: var(--thumbOffset);
+
     position: relative;
     width: 55px;
     height: var(--switchHeight);
@@ -229,27 +233,19 @@ button {
 }
 
 .on-off-3.enabled {
+    --thumbLeft: calc(100% - var(--thumbSize) - var(--thumbOffset));
+
     background-color: #6fe348;
 }
 
 .on-off-3-thumb {
-    --thumbOffset: 2px;
-    --thumbSize: calc(var(--switchHeight) - (var(--thumbOffset) + var(--switchBorderWidth)) * 2);
-
     position: absolute;
     top: var(--thumbOffset);
+    left: var(--thumbLeft);
     height: var(--thumbSize);
     aspect-ratio: 1;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0 3px gray;
     transition: left 0.3s;
-}
-
-.on-off-3.disabled .on-off-3-thumb {
-    left: var(--thumbOffset);
-}
-
-.on-off-3.enabled .on-off-3-thumb {
-    left: calc(100% - var(--thumbSize) - var(--thumbOffset));
 }
