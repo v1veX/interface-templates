@@ -166,6 +166,19 @@ button {
     cursor: pointer;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .section {
     padding-block: 30px;
 }
@@ -248,4 +261,41 @@ button {
     border-radius: 50%;
     box-shadow: 0 0 3px gray;
     transition: left 0.3s;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.customCheckBox1 {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+}
+
+.customCheckBox1-icon {
+    --markerSize: 20px;
+
+    --markerOpacity: 0;
+
+    height: var(--markerSize);
+    aspect-ratio: 1;
+    border: 2px solid blue;
+    border-radius: 5px;
+    overflow: hidden;  /* optional */
+}
+
+.customCheckBox1-input:checked + .customCheckBox1-icon {
+    --markerOpacity: 1;
+}
+
+.customCheckBox1-icon-inner {
+    opacity: var(--markerOpacity);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: blue;
+    font-size: 15px;
+    /* transition: opacity 0.3s; */  /* optional */
 }
