@@ -266,36 +266,39 @@ button {
 /* ------------------------------------------------------------------------------------------- */
 
 .customCheckBox1 {
+    --markerSize: 20px;
+    --markerBgColor: transparent;
+
+    --markerInnerOpacity: 0;
+
     display: inline-flex;
     align-items: center;
     column-gap: 10px;
     cursor: pointer;
 }
 
-.customCheckBox1-icon {
-    --markerSize: 20px;
+.customCheckBox1-input:checked + .customCheckBox1 {
+    --markerBgColor: blue;
 
-    --markerOpacity: 0;
+    --markerInnerOpacity: 1;
+}
 
+.customCheckBox1-marker {
     height: var(--markerSize);
     aspect-ratio: 1;
-    border: 2px solid blue;
+    background-color: var(--markerBgColor);
+    border: 1px solid blue;
     border-radius: 5px;
     overflow: hidden;  /* optional */
 }
 
-.customCheckBox1-input:checked + .customCheckBox1-icon {
-    --markerOpacity: 1;
-}
-
-.customCheckBox1-icon-inner {
-    opacity: var(--markerOpacity);
+.customCheckBox1-marker-inner {
+    opacity: var(--markerInnerOpacity);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    color: blue;
-    font-size: 15px;
-    /* transition: opacity 0.3s; */  /* optional */
+    color: #FFFFFF;
+    font-size: 14px;
 }
