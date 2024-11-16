@@ -265,9 +265,9 @@ button {
 
 /* ------------------------------------------------------------------------------------------- */
 
-.customCheckBox1 {
-    --markerSize: 20px;
-    --markerBgColor: transparent;
+.custom-checkbox {
+    --markerSize: 16px;
+    --markerColor: green;
 
     --markerInnerOpacity: 0;
 
@@ -277,28 +277,64 @@ button {
     cursor: pointer;
 }
 
-.customCheckBox1-input:checked + .customCheckBox1 {
-    --markerBgColor: blue;
+.custom-checkbox-input:checked + .custom-checkbox {
+    --markerInnerColor: var(--markerColor);
 
     --markerInnerOpacity: 1;
 }
 
-.customCheckBox1-marker {
+.custom-checkbox-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: var(--markerSize);
     aspect-ratio: 1;
-    background-color: var(--markerBgColor);
-    border: 1px solid blue;
+    background-color: var(--markerInnerColor);
+    border: 1px solid var(--markerColor);
     border-radius: 5px;
     overflow: hidden;  /* optional */
 }
 
-.customCheckBox1-marker-inner {
+.custom-checkbox-marker-inner {
     opacity: var(--markerInnerOpacity);
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.custom-radio {
+    --markerSize: 16px;
+    --markerColor: green;
+
+
+    --markerInnerOffset: 3px;
+    --markerInnerOpacity: 0;
+
+    display: inline-flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+}
+
+.custom-radio-input:checked + .custom-radio {
+    --markerInnerOpacity: 1;
+}
+
+.custom-radio-marker {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: #FFFFFF;
-    font-size: 14px;
+    height: var(--markerSize);
+    aspect-ratio: 1;
+    border: 1px solid var(--markerColor);
+    border-radius: 50%;
+}
+
+.custom-radio-marker-inner {
+    opacity: var(--markerInnerOpacity);
+    height: calc(var(--markerSize) - var(--markerInnerOffset) * 2);
+    aspect-ratio: 1;
+    background-color: var(--markerColor);
+    border-radius: 50%;
 }

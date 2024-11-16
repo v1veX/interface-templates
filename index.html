@@ -38,13 +38,38 @@
         <section class="section">
             <h2 class="section-title">Кастомный чекбокс (полностью через CSS)</h2>
             <div class="section-body">
-                <input type="checkbox" name="check" id="checkboxField" class="customCheckBox1-input visually-hidden" />
-                <label for="checkboxField" class="customCheckBox1">
-                    <div class="customCheckBox1-marker">
-                        <div class="customCheckBox1-marker-inner">✔</div>
-                    </div>
-                    <div class="customCheckBox1-label">Принимаю политику конфиденциальности</div>
-                </label>
+                <div class="form-row">
+                    <input type="checkbox" name="check" id="checkboxField" class="custom-checkbox-input visually-hidden" />
+                    <label for="checkboxField" class="custom-checkbox">
+                        <div class="custom-checkbox-marker">
+                            <div class="custom-checkbox-marker-inner">✔</div>
+                        </div>
+                        <div class="custom-checkbox-label">Принимаю политику конфиденциальности</div>
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Кастомная радиокнопка (полностью через CSS)</h2>
+            <div class="section-body">
+                <div class="form-row">
+                    <input type="radio" name="radio" id="radio-field-1" class="custom-radio-input visually-hidden" value="1" />
+                    <label for="radio-field-1" class="custom-radio">
+                        <div class="custom-radio-marker">
+                            <div class="custom-radio-marker-inner"></div>
+                        </div>
+                        <div class="custom-radio-label">Вариант 1</div>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <input type="radio" name="radio" id="radio-field-2" class="custom-radio-input visually-hidden" value="2" />
+                    <label for="radio-field-2" class="custom-radio">
+                        <div class="custom-radio-marker">
+                            <div class="custom-radio-marker-inner"></div>
+                        </div>
+                        <div class="custom-radio-label">Вариант 2</div>
+                    </label>
+                </div>
             </div>
         </section>
     </main>
