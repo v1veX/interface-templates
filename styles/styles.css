@@ -338,3 +338,29 @@ button {
     background-color: var(--markerColor);
     border-radius: 50%;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.form-row-2 {
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.custom-radio-2 {
+    --green: green;
+
+    --radioBg: transparent;
+    --radioColor: black;
+
+    padding: 10px 20px;
+    border: 1px solid var(--green);
+    background-color: var(--radioBg);
+    color: var(--radioColor);
+    cursor: pointer;
+}
+
+.custom-radio-input-2:checked + .custom-radio-2 {
+    --radioBg: var(--green);
+    --radioColor: white;
+}
