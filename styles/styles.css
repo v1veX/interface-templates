@@ -267,15 +267,21 @@ button {
 
 .custom-checkbox {
     --someColor: green;
+    --focusedOutline: black solid 1px;
 
     --markerOpacity: 0;
     --markerSize: 18px;
     --markerBg: transparent;
+    --markerOutline: none;
 }
 
 .custom-checkbox-native:checked + .custom-checkbox-controls {
     --markerOpacity: 1;
     --markerBg: var(--someColor);
+}
+
+.custom-checkbox-native:focus-visible + .custom-checkbox-controls {
+    --markerOutline: var(--focusedOutline);
 }
 
 .custom-checkbox-controls {
@@ -297,6 +303,8 @@ button {
     background-color: var(--markerBg);
     border: 1px solid var(--someColor);
     border-radius: 5px;
+    outline: var(--markerOutline);
+    outline-offset: 1px;
 }
 
 .custom-checkbox-marker-inner {
