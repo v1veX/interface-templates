@@ -38,15 +38,15 @@
         <section class="section">
             <h2 class="section-title">Кастомный чекбокс (полностью через CSS)</h2>
             <div class="section-body">
-                <div class="form-row">
-                    <input type="checkbox" name="check" id="checkboxField" class="custom-checkbox-input visually-hidden" />
-                    <label for="checkboxField" class="custom-checkbox">
-                        <div class="custom-checkbox-marker">
-                            <div class="custom-checkbox-marker-inner">✔</div>
-                        </div>
-                        <div class="custom-checkbox-label">Принимаю политику конфиденциальности</div>
-                    </label>
-                </div>
+                <span class="custom-checkbox" id="custom-checkbox-1">
+                    <input type="checkbox" name="field1" id="checkbox1" class="custom-checkbox-native " tabindex="-1" data-js-checkbox-native />
+                    <div class="custom-checkbox-controls">
+                        <label for="checkbox1" class="custom-checkbox-marker" tabindex="0" data-js-checkbox-control>
+                            <span class="custom-checkbox-marker-inner">✔</span>
+                        </label>
+                        <label for="checkbox1" class="custom-checkbox-label">Принимаю политику конфиденциальности</label>
+                    </div>
+                </span>
             </div>
         </section>
         <section class="section">

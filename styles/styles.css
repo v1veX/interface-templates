@@ -266,21 +266,22 @@ button {
 /* ------------------------------------------------------------------------------------------- */
 
 .custom-checkbox {
+    --someColor: green;
+
+    --markerOpacity: 0;
     --markerSize: 16px;
-    --markerColor: green;
-
-    --markerInnerOpacity: 0;
-
-    display: inline-flex;
-    align-items: center;
-    column-gap: 10px;
-    cursor: pointer;
+    --markerBg: transparent;
 }
 
-.custom-checkbox-input:checked + .custom-checkbox {
-    --markerInnerColor: var(--markerColor);
+.custom-checkbox-native:checked + .custom-checkbox-controls {
+    --markerOpacity: 1;
+    --markerBg: var(--someColor);
+}
 
-    --markerInnerOpacity: 1;
+.custom-checkbox-controls {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
 }
 
 .custom-checkbox-marker {
@@ -289,14 +290,13 @@ button {
     justify-content: center;
     height: var(--markerSize);
     aspect-ratio: 1;
-    background-color: var(--markerInnerColor);
-    border: 1px solid var(--markerColor);
+    background-color: var(--markerBg);
+    border: 1px solid var(--someColor);
     border-radius: 5px;
-    overflow: hidden;  /* optional */
 }
 
 .custom-checkbox-marker-inner {
-    opacity: var(--markerInnerOpacity);
+    opacity: var(--markerOpacity);
     color: #FFFFFF;
     font-size: 12px;
 }
