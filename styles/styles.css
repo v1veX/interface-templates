@@ -269,7 +269,7 @@ button {
     --someColor: green;
 
     --markerOpacity: 0;
-    --markerSize: 16px;
+    --markerSize: 18px;
     --markerBg: transparent;
 }
 
@@ -282,6 +282,10 @@ button {
     display: flex;
     align-items: center;
     column-gap: 10px;
+}
+
+.custom-checkbox-controls label {
+    cursor: pointer;
 }
 
 .custom-checkbox-marker {
