@@ -267,7 +267,7 @@ button {
 
 .custom-checkbox {
     --someColor: green;
-    --focusedOutline: black solid 1px;
+    --focusedOutline: black solid 2px;
 
     --markerOpacity: 0;
     --markerSize: 18px;
@@ -304,7 +304,6 @@ button {
     border: 1px solid var(--someColor);
     border-radius: 5px;
     outline: var(--markerOutline);
-    outline-offset: 1px;
 }
 
 .custom-checkbox-marker-inner {
@@ -316,21 +315,33 @@ button {
 /* ------------------------------------------------------------------------------------------- */
 
 .custom-radio {
-    --markerSize: 16px;
-    --markerColor: green;
+    --someColor: green;
+    --focusedOutline: black solid 2px;
 
+    --markerOpacity: 0;
+    --markerSize: 18px;
+    --markerBg: var(--someColor);
+    --markerOutline: none;
 
-    --markerInnerOffset: 3px;
-    --markerInnerOpacity: 0;
-
-    display: inline-flex;
-    align-items: center;
-    column-gap: 10px;
-    cursor: pointer;
+    --markerInnerOffset: 4px;
 }
 
-.custom-radio-input:checked + .custom-radio {
-    --markerInnerOpacity: 1;
+.custom-radio-native:checked + .custom-radio-controls {
+    --markerOpacity: 1;
+}
+
+.custom-radio-native:focus-visible + .custom-radio-controls {
+    --markerOutline: var(--focusedOutline);
+}
+
+.custom-radio-controls {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.custom-radio-controls label {
+    cursor: pointer;
 }
 
 .custom-radio-marker {
@@ -339,15 +350,16 @@ button {
     justify-content: center;
     height: var(--markerSize);
     aspect-ratio: 1;
-    border: 1px solid var(--markerColor);
+    border: 1px solid var(--someColor);
     border-radius: 50%;
+    outline: var(--markerOutline);
 }
 
 .custom-radio-marker-inner {
-    opacity: var(--markerInnerOpacity);
+    opacity: var(--markerOpacity);
     height: calc(var(--markerSize) - var(--markerInnerOffset) * 2);
     aspect-ratio: 1;
-    background-color: var(--markerColor);
+    background-color: var(--markerBg);
     border-radius: 50%;
 }
 
@@ -361,18 +373,29 @@ button {
 
 .custom-radio-2 {
     --green: green;
+    --outlineFocused: black solid 2px;
 
     --radioBg: transparent;
     --radioColor: black;
 
+    --labelOutline: none;
+}
+
+.custom-radio-2-native:checked + .custom-radio-2-label {
+    --radioBg: var(--green);
+    --radioColor: white;
+}
+
+.custom-radio-2-native:focus-visible + .custom-radio-2-label {
+    --labelOutline: var(--outlineFocused);
+}
+
+.custom-radio-2-label {
     padding: 10px 20px;
     border: 1px solid var(--green);
     background-color: var(--radioBg);
     color: var(--radioColor);
     cursor: pointer;
-}
-
-.custom-radio-input-2:checked + .custom-radio-2 {
-    --radioBg: var(--green);
-    --radioColor: white;
+    outline: var(--labelOutline);
+    outline-offset: 2px;
 }

@@ -58,42 +58,95 @@
         <section class="section">
             <h2 class="section-title">Кастомная радиокнопка (полностью через CSS)</h2>
             <div class="section-body">
-                <div class="form-row">
-                    <input type="radio" name="radio" id="radio-field-1" class="custom-radio-input visually-hidden" value="1" />
-                    <label for="radio-field-1" class="custom-radio">
-                        <div class="custom-radio-marker">
-                            <div class="custom-radio-marker-inner"></div>
-                        </div>
-                        <div class="custom-radio-label">Вариант 1</div>
-                    </label>
-                </div>
-                <div class="form-row">
-                    <input type="radio" name="radio" id="radio-field-2" class="custom-radio-input visually-hidden" value="2" />
-                    <label for="radio-field-2" class="custom-radio">
-                        <div class="custom-radio-marker">
-                            <div class="custom-radio-marker-inner"></div>
-                        </div>
-                        <div class="custom-radio-label">Вариант 2</div>
-                    </label>
-                </div>
+                <span class="custom-radio" id="custom-radio-1">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-1"
+                        class="custom-radio-native visually-hidden"
+                        value="1"
+                        checked
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-1" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-1" class="custom-radio-label">Вариант 1</label>
+                    </div>
+                </span>
+                <span class="custom-radio" id="custom-radio-2">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-2"
+                        class="custom-radio-native visually-hidden"
+                        value="2"
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-2" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-2" class="custom-radio-label">Вариант 2</label>
+                    </div>
+                </span>
+                <span class="custom-radio" id="custom-radio-3">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-3"
+                        class="custom-radio-native visually-hidden"
+                        value="3"
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-3" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-3" class="custom-radio-label">Вариант 3</label>
+                    </div>
+                </span>
             </div>
         </section>
         <section class="section">
             <h2 class="section-title">Кастомная радиокнопка без круглого маркера (полностью через CSS)</h2>
             <div class="section-body">
                 <div class="form-row-2">
-                    <input type="radio" name="radio2" id="radio-field-11" class="custom-radio-input-2 visually-hidden" value="1" />
-                    <label for="radio-field-11" class="custom-radio-2">
-                        Вариант 1
-                    </label>
-                    <input type="radio" name="radio2" id="radio-field-22" class="custom-radio-input-2 visually-hidden" value="2" />
-                    <label for="radio-field-22" class="custom-radio-2">
-                        Вариант 2
-                    </label>
-                    <input type="radio" name="radio2" id="radio-field-33" class="custom-radio-input-2 visually-hidden" value="3" />
-                    <label for="radio-field-33" class="custom-radio-2">
-                        Вариант 3
-                    </label>
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-21"
+                            class="custom-radio-2-native visually-hidden"
+                            value="1"
+                            checked
+                        />
+                        <label for="radio-field-21" class="custom-radio-2-label">
+                            Вариант 1
+                        </label>
+                    </span>
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-22"
+                            class="custom-radio-2-native visually-hidden"
+                            value="2"
+                        />
+                        <label for="radio-field-22" class="custom-radio-2-label">
+                            Вариант 2
+                        </label>
+                    </span>
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-23"
+                            class="custom-radio-2-native visually-hidden"
+                            value="3"
+                        />
+                        <label for="radio-field-23" class="custom-radio-2-label">
+                            Вариант 3
+                        </label>
+                    </span>
                 </div>
             </div>
         </section>
