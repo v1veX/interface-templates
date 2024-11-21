@@ -399,3 +399,29 @@ button {
     outline: var(--labelOutline);
     outline-offset: 2px;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.input {
+    --someColor: purple;
+
+    height: 50px;
+    width: 300px;
+    padding: 20px 15px;
+    border: 1px solid var(--someColor);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.input:hover {
+    background-color: #fcebfc;
+}
+
+.input:focus-visible {
+    outline: none;
+    background-color: #f2dcf2;
+}
+
+.input:invalid {
+    background-color: #efc4c4;
+}
