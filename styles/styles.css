@@ -151,6 +151,12 @@ svg * {
 
 /* ------------------------------------------------------------------------------------------ */
 
+:root {
+    --input-height: 50px;
+    --input-width: 300px;
+    --input-password-padding-right: 40px;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     font-size: 17px;
@@ -402,15 +408,21 @@ button {
 
 /* ------------------------------------------------------------------------------------------- */
 
+.input-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
 .input {
     --someColor: purple;
 
-    height: 50px;
-    width: 300px;
-    padding: 20px 15px;
+    height: var(--input-height);
+    width: var(--input-width);
+    padding-inline: 15px;
     border: 1px solid var(--someColor);
     border-radius: 10px;
     transition: background-color 0.3s;
+    outline-offset: 2px;
 }
 
 .input:hover {
@@ -418,10 +430,65 @@ button {
 }
 
 .input:focus-visible {
-    outline: none;
-    background-color: #f2dcf2;
+    outline: var(--someColor) solid 2px;
 }
 
 .input:invalid {
     background-color: #efc4c4;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.input-password {
+    padding-right: var(--input-password-padding-right);
+}
+
+.show-password-button {
+    --btnSize: 30px;
+
+    --btnInnerSize: 20px;
+
+    --showIconDisplay: block;
+    --hideIconDisplay: none;
+
+    position: absolute;
+    top: calc((var(--input-height) - var(--btnSize)) / 2);
+    right: calc((var(--input-password-padding-right) - var(--btnSize)) / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--btnSize);
+    width: var(--btnSize);
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.show-password-button:hover {
+    background-color: lightgray;
+}
+
+.show-password-button.password-shown {
+    --showIconDisplay: none;
+    --hideIconDisplay: block;
+}
+
+.show-password-button-inner {
+    height: var(--btnInnerSize);
+    width: var(--btnInnerSize);
+}
+
+.show-password-button-inner svg {
+    height: 100%;
+    width: 100%;
+}
+
+.show-password-button-inner.show-icon {
+    display: var(--showIconDisplay);
+}
+
+.show-password-button-inner.hide-icon {
+    display: var(--hideIconDisplay);
 }
