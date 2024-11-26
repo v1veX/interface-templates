@@ -155,9 +155,12 @@ svg * {
     --input-height: 50px;
     --input-width: 300px;
     --input-password-padding-right: 40px;
+
+    --color-purple: purple;
 }
 
 body {
+    background-color: #f1f1f1;
     font-family: 'Arial', sans-serif;
     font-size: 17px;
 }
@@ -514,4 +517,53 @@ button {
     border: 5px solid black;
     border-top-color: transparent;
     border-radius: 50%;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.accordion {
+    box-shadow: 0 0 5px #BEBEBE;
+}
+
+.accordion:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #c14ac1;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.accordion-summary:hover {
+    background-color: var(--color-purple);
+}
+
+.accordion-summary::marker {
+    display: none;
+    content: '';
+}
+
+.accordion-summary::after {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 20px;
+    background-color: #FFFFFF;
+    transition: rotate 0.3s;
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+.accordion[open] .accordion-summary::after {
+    rotate: 180deg;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #FFFFFF;
 }
