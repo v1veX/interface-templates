@@ -151,7 +151,16 @@ svg * {
 
 /* ------------------------------------------------------------------------------------------ */
 
+:root {
+    --input-height: 50px;
+    --input-width: 300px;
+    --input-password-padding-right: 40px;
+
+    --color-purple: purple;
+}
+
 body {
+    background-color: #f1f1f1;
     font-family: 'Arial', sans-serif;
     font-size: 17px;
 }
@@ -266,21 +275,32 @@ button {
 /* ------------------------------------------------------------------------------------------- */
 
 .custom-checkbox {
-    --markerSize: 16px;
-    --markerColor: green;
+    --someColor: green;
+    --focusedOutline: black solid 2px;
 
-    --markerInnerOpacity: 0;
-
-    display: inline-flex;
-    align-items: center;
-    column-gap: 10px;
-    cursor: pointer;
+    --markerOpacity: 0;
+    --markerSize: 18px;
+    --markerBg: transparent;
+    --markerOutline: none;
 }
 
-.custom-checkbox-input:checked + .custom-checkbox {
-    --markerInnerColor: var(--markerColor);
+.custom-checkbox-native:checked + .custom-checkbox-controls {
+    --markerOpacity: 1;
+    --markerBg: var(--someColor);
+}
 
-    --markerInnerOpacity: 1;
+.custom-checkbox-native:focus-visible + .custom-checkbox-controls {
+    --markerOutline: var(--focusedOutline);
+}
+
+.custom-checkbox-controls {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.custom-checkbox-controls label {
+    cursor: pointer;
 }
 
 .custom-checkbox-marker {
@@ -289,14 +309,14 @@ button {
     justify-content: center;
     height: var(--markerSize);
     aspect-ratio: 1;
-    background-color: var(--markerInnerColor);
-    border: 1px solid var(--markerColor);
+    background-color: var(--markerBg);
+    border: 1px solid var(--someColor);
     border-radius: 5px;
-    overflow: hidden;  /* optional */
+    outline: var(--markerOutline);
 }
 
 .custom-checkbox-marker-inner {
-    opacity: var(--markerInnerOpacity);
+    opacity: var(--markerOpacity);
     color: #FFFFFF;
     font-size: 12px;
 }
@@ -304,21 +324,33 @@ button {
 /* ------------------------------------------------------------------------------------------- */
 
 .custom-radio {
-    --markerSize: 16px;
-    --markerColor: green;
+    --someColor: green;
+    --focusedOutline: black solid 2px;
 
+    --markerOpacity: 0;
+    --markerSize: 18px;
+    --markerBg: var(--someColor);
+    --markerOutline: none;
 
-    --markerInnerOffset: 3px;
-    --markerInnerOpacity: 0;
-
-    display: inline-flex;
-    align-items: center;
-    column-gap: 10px;
-    cursor: pointer;
+    --markerInnerOffset: 4px;
 }
 
-.custom-radio-input:checked + .custom-radio {
-    --markerInnerOpacity: 1;
+.custom-radio-native:checked + .custom-radio-controls {
+    --markerOpacity: 1;
+}
+
+.custom-radio-native:focus-visible + .custom-radio-controls {
+    --markerOutline: var(--focusedOutline);
+}
+
+.custom-radio-controls {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.custom-radio-controls label {
+    cursor: pointer;
 }
 
 .custom-radio-marker {
@@ -327,14 +359,211 @@ button {
     justify-content: center;
     height: var(--markerSize);
     aspect-ratio: 1;
-    border: 1px solid var(--markerColor);
+    border: 1px solid var(--someColor);
     border-radius: 50%;
+    outline: var(--markerOutline);
 }
 
 .custom-radio-marker-inner {
-    opacity: var(--markerInnerOpacity);
+    opacity: var(--markerOpacity);
     height: calc(var(--markerSize) - var(--markerInnerOffset) * 2);
     aspect-ratio: 1;
-    background-color: var(--markerColor);
+    background-color: var(--markerBg);
     border-radius: 50%;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.form-row-2 {
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.custom-radio-2 {
+    --green: green;
+    --outlineFocused: black solid 2px;
+
+    --radioBg: transparent;
+    --radioColor: black;
+
+    --labelOutline: none;
+}
+
+.custom-radio-2-native:checked + .custom-radio-2-label {
+    --radioBg: var(--green);
+    --radioColor: white;
+}
+
+.custom-radio-2-native:focus-visible + .custom-radio-2-label {
+    --labelOutline: var(--outlineFocused);
+}
+
+.custom-radio-2-label {
+    padding: 10px 20px;
+    border: 1px solid var(--green);
+    background-color: var(--radioBg);
+    color: var(--radioColor);
+    cursor: pointer;
+    outline: var(--labelOutline);
+    outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.input-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.input {
+    --someColor: purple;
+
+    height: var(--input-height);
+    width: var(--input-width);
+    padding-inline: 15px;
+    border: 1px solid var(--someColor);
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    outline-offset: 2px;
+}
+
+.input:hover {
+    background-color: #fcebfc;
+}
+
+.input:focus-visible {
+    outline: var(--someColor) solid 2px;
+}
+
+.input:invalid {
+    background-color: #efc4c4;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.input-password {
+    padding-right: var(--input-password-padding-right);
+}
+
+.show-password-button {
+    --btnSize: 30px;
+
+    --btnInnerSize: 20px;
+
+    --showIconDisplay: block;
+    --hideIconDisplay: none;
+
+    position: absolute;
+    top: calc((var(--input-height) - var(--btnSize)) / 2);
+    right: calc((var(--input-password-padding-right) - var(--btnSize)) / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--btnSize);
+    width: var(--btnSize);
+    padding: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.show-password-button:hover {
+    background-color: lightgray;
+}
+
+.show-password-button.password-shown {
+    --showIconDisplay: none;
+    --hideIconDisplay: block;
+}
+
+.show-password-button-inner {
+    height: var(--btnInnerSize);
+    width: var(--btnInnerSize);
+}
+
+.show-password-button-inner svg {
+    height: 100%;
+    width: 100%;
+}
+
+.show-password-button-inner.show-icon {
+    display: var(--showIconDisplay);
+}
+
+.show-password-button-inner.hide-icon {
+    display: var(--hideIconDisplay);
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.spinner {
+    --spinnerSize: 40px;
+
+    height: var(--spinnerSize);
+    width: var(--spinnerSize);
+}
+
+@keyframes rotate-spinner {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
+}
+
+.spinner-inner {
+    animation: rotate-spinner 0.9s infinite linear;
+    height: 100%;
+    width: 100%;
+    border: 5px solid black;
+    border-top-color: transparent;
+    border-radius: 50%;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.accordion {
+    box-shadow: 0 0 5px #BEBEBE;
+}
+
+.accordion:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #c14ac1;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.accordion-summary:hover {
+    background-color: var(--color-purple);
+}
+
+.accordion-summary::marker {
+    display: none;
+    content: '';
+}
+
+.accordion-summary::after {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 20px;
+    background-color: #FFFFFF;
+    transition: rotate 0.3s;
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+.accordion[open] .accordion-summary::after {
+    rotate: 180deg;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #FFFFFF;
 }

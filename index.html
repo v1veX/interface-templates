@@ -38,38 +38,203 @@
         <section class="section">
             <h2 class="section-title">Кастомный чекбокс (полностью через CSS)</h2>
             <div class="section-body">
-                <div class="form-row">
-                    <input type="checkbox" name="check" id="checkboxField" class="custom-checkbox-input visually-hidden" />
-                    <label for="checkboxField" class="custom-checkbox">
-                        <div class="custom-checkbox-marker">
-                            <div class="custom-checkbox-marker-inner">✔</div>
-                        </div>
-                        <div class="custom-checkbox-label">Принимаю политику конфиденциальности</div>
-                    </label>
-                </div>
+                <span class="custom-checkbox" id="custom-checkbox-1">
+                    <input 
+                        type="checkbox"
+                        name="field1"
+                        id="checkbox1"
+                        class="custom-checkbox-native visually-hidden"
+                        data-js-checkbox-native
+                    />
+                    <div class="custom-checkbox-controls">
+                        <label for="checkbox1" class="custom-checkbox-marker" data-js-checkbox-control>
+                            <span class="custom-checkbox-marker-inner">✔</span>
+                        </label>
+                        <label for="checkbox1" class="custom-checkbox-label">Принимаю политику конфиденциальности</label>
+                    </div>
+                </span>
             </div>
         </section>
         <section class="section">
             <h2 class="section-title">Кастомная радиокнопка (полностью через CSS)</h2>
             <div class="section-body">
-                <div class="form-row">
-                    <input type="radio" name="radio" id="radio-field-1" class="custom-radio-input visually-hidden" value="1" />
-                    <label for="radio-field-1" class="custom-radio">
-                        <div class="custom-radio-marker">
-                            <div class="custom-radio-marker-inner"></div>
-                        </div>
-                        <div class="custom-radio-label">Вариант 1</div>
-                    </label>
+                <span class="custom-radio" id="custom-radio-1">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-1"
+                        class="custom-radio-native visually-hidden"
+                        value="1"
+                        checked
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-1" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-1" class="custom-radio-label">Вариант 1</label>
+                    </div>
+                </span>
+                <span class="custom-radio" id="custom-radio-2">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-2"
+                        class="custom-radio-native visually-hidden"
+                        value="2"
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-2" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-2" class="custom-radio-label">Вариант 2</label>
+                    </div>
+                </span>
+                <span class="custom-radio" id="custom-radio-3">
+                    <input 
+                        type="radio"
+                        name="variant1"
+                        id="radio-3"
+                        class="custom-radio-native visually-hidden"
+                        value="3"
+                    />
+                    <div class="custom-radio-controls">
+                        <label for="radio-3" class="custom-radio-marker">
+                            <span class="custom-radio-marker-inner"></span>
+                        </label>
+                        <label for="radio-3" class="custom-radio-label">Вариант 3</label>
+                    </div>
+                </span>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Кастомная радиокнопка без круглого маркера (полностью через CSS)</h2>
+            <div class="section-body">
+                <div class="form-row-2">
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-21"
+                            class="custom-radio-2-native visually-hidden"
+                            value="1"
+                            checked
+                        />
+                        <label for="radio-field-21" class="custom-radio-2-label">
+                            Вариант 1
+                        </label>
+                    </span>
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-22"
+                            class="custom-radio-2-native visually-hidden"
+                            value="2"
+                        />
+                        <label for="radio-field-22" class="custom-radio-2-label">
+                            Вариант 2
+                        </label>
+                    </span>
+                    <span class="custom-radio-2">
+                        <input
+                            type="radio"
+                            name="variant2"
+                            id="radio-field-23"
+                            class="custom-radio-2-native visually-hidden"
+                            value="3"
+                        />
+                        <label for="radio-field-23" class="custom-radio-2-label">
+                            Вариант 3
+                        </label>
+                    </span>
                 </div>
-                <div class="form-row">
-                    <input type="radio" name="radio" id="radio-field-2" class="custom-radio-input visually-hidden" value="2" />
-                    <label for="radio-field-2" class="custom-radio">
-                        <div class="custom-radio-marker">
-                            <div class="custom-radio-marker-inner"></div>
-                        </div>
-                        <div class="custom-radio-label">Вариант 2</div>
-                    </label>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Инпут. Просто инпут</h2>
+            <div class="section-body">
+                <label for="text1">Логин</label>
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        name="login"
+                        id="text1"
+                        class="input"
+                        placeholder="Введите текст"
+                        minlength="5"
+                        maxlength="10"
+                        pattern="^[a-zA-Z0-9]+$"
+                    />
                 </div>
+                <p>Только латинские буквы и цифры</p>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Инпут для пароля с переключением видимости</h2>
+            <div class="section-body">
+                <label for="password1">Пароль</label>
+                <div class="input-wrapper">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password1"
+                        class="input input-password"
+                        placeholder="Введите пароль"
+                        data-js-password-input
+                    />
+                    <button type="button" class="show-password-button">
+                        <span class="show-password-button-inner show-icon">
+                            <svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8L3.07945 4.30466C4.29638 2.84434 6.09909 2 8 2C9.90091 2 11.7036 2.84434 12.9206 4.30466L16 8L12.9206 11.6953C11.7036 13.1557 9.90091 14 8 14C6.09909 14 4.29638 13.1557 3.07945 11.6953L0 8ZM8 11C9.65685 11 11 9.65685 11 8C11 6.34315 9.65685 5 8 5C6.34315 5 5 6.34315 5 8C5 9.65685 6.34315 11 8 11Z" fill="#000000"/>
+                            </svg>
+                        </span>
+                        <span class="show-password-button-inner hide-icon">
+                            <svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 16H13L10.8368 13.3376C9.96488 13.7682 8.99592 14 8 14C6.09909 14 4.29638 13.1557 3.07945 11.6953L0 8L3.07945 4.30466C3.14989 4.22013 3.22229 4.13767 3.29656 4.05731L0 0H3L16 16ZM5.35254 6.58774C5.12755 7.00862 5 7.48941 5 8C5 9.65685 6.34315 11 8 11C8.29178 11 8.57383 10.9583 8.84053 10.8807L5.35254 6.58774Z" fill="#000000"/>
+                                <path d="M16 8L14.2278 10.1266L7.63351 2.01048C7.75518 2.00351 7.87739 2 8 2C9.90091 2 11.7036 2.84434 12.9206 4.30466L16 8Z" fill="#000000"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Спиннер</h2>
+            <div class="section-body">
+                <div class="spinner" role="status">
+                    <div class="visually-hidden">Загрузка...</div>
+                    <div class="spinner-inner"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Аккордеон</h2>
+            <div class="section-body">
+                <!-- Атрибут name ставится, когда мы хотим чтобы среди группы аккордеонов открывался только один -->
+                <details class="accordion" name="accordion-1">
+                    <summary class="accordion-summary">
+                        <h3 class="accordion-summary-title">Бла-бла-бла, это какой-то пункт</h3>
+                    </summary>
+                    <div class="accordion-content">
+                        А здесь про этот пункт подробное объяснение... Могло быть
+                    </div>
+                </details>
+                <details class="accordion" name="accordion-1">
+                    <summary class="accordion-summary">
+                        <h3 class="accordion-summary-title">Бла-бла-бла, это какой-то пункт</h3>
+                    </summary>
+                    <div class="accordion-content">
+                        А здесь про этот пункт подробное объяснение... Могло быть
+                    </div>
+                </details>
+                <details class="accordion" name="accordion-1">
+                    <summary class="accordion-summary">
+                        <h3 class="accordion-summary-title">Бла-бла-бла, это какой-то пункт</h3>
+                    </summary>
+                    <div class="accordion-content">
+                        А здесь про этот пункт подробное объяснение... Могло быть
+                    </div>
+                </details>
             </div>
         </section>
     </main>
