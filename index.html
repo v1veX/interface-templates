@@ -54,6 +54,26 @@
                     </div>
                 </span>
             </div>
+            <span class="dropdown-wrapper">
+                <button type="button" class="a-button" data-js-dropdown-control data-js-related-dropdown="[data-js-a-dropdown]">Меню</button>
+                <div class="menu-dropdown dropdown" 
+                    data-js-dropdown
+                    data-js-dropdown-alignment="center"
+                    data-js-a-dropdown
+                >
+                    <ul class="dropdown-list">
+                        <li class="dropdown-item">
+                            Ссылка 1
+                        </li>
+                        <li class="dropdown-item">
+                            Ссылка 2
+                        </li>
+                        <li class="dropdown-item">
+                            Ссылка 3
+                        </li>
+                    </ul>
+                </div>
+            </span>
         </section>
         <section class="section">
             <h2 class="section-title">Кастомная радиокнопка (полностью через CSS)</h2>
@@ -235,6 +255,37 @@
                         А здесь про этот пункт подробное объяснение... Могло быть
                     </div>
                 </details>
+            </div>
+        </section>
+        <section class="section">
+            <h2 class="section-title">Дропдаун</h2>
+            <div class="section-body">
+                <!-- Дропдаун обязательно должен лежать в родителе с position: relative -->
+
+                <!-- 
+                data-js-dropdown-control - кнопка, открывающая дропдаун (на кнопку);
+                data-js-related-dropdown="<dropdown_selector>" - селектор дропдауна, с которым связана кнопка (на кнопку);
+                data-js-dropdown - дропдаун (на дропдаун);
+                data-js-dropdown-alignment="{left, center, right}" - сторона позиционирования дропдауна. 
+                можно не указывать, тогда будет left (на дропдаун);
+                -->
+
+                <span class="dropdown-wrapper">
+                    <button type="button" class="menu-button" data-js-dropdown-control data-js-related-dropdown="[data-js-menu-dropdown]">Меню</button>
+                    <div class="menu-dropdown dropdown" data-js-dropdown data-js-menu-dropdown>
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item">
+                                <a href="/" class="menu-link">Ссылка 1</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="/" class="menu-link">Ссылка 2</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="/" class="menu-link">Ссылка 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
             </div>
         </section>
     </main>

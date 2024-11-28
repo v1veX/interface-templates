@@ -503,6 +503,7 @@ button {
 
     height: var(--spinnerSize);
     width: var(--spinnerSize);
+    color: #001219;
 }
 
 @keyframes rotate-spinner {
@@ -514,7 +515,7 @@ button {
     animation: rotate-spinner 0.9s infinite linear;
     height: 100%;
     width: 100%;
-    border: 5px solid black;
+    border: 5px solid currentColor;
     border-top-color: transparent;
     border-radius: 50%;
 }
@@ -566,4 +567,31 @@ button {
 .accordion-content {
     padding: 15px;
     background-color: #FFFFFF;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    --dropdownOffsetGap: 5px;
+
+    position: absolute;
+    top: calc(100% + var(--dropdownOffsetGap));
+    display: none;
+    min-width: 200px;
+    padding: 15px;
+    background-color: #001219;
+    color: #FFFFFF;
+}
+
+.dropdown.shown {
+    display: block;
+}
+
+.dropdown-item:not(:last-child) {
+    margin-bottom: 10px;
 }
