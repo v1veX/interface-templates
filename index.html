@@ -288,6 +288,110 @@
                 </span>
             </div>
         </section>
+        <section class="section">
+            <h2 class="section-title">Форма с гибридной валидацией</h2>
+            <div class="section-body">
+                <form class="form" id="form1" novalidate data-js-form>
+                    <div class="form-row">
+                        <label for="loginInput">Логин</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                name="log1"
+                                id="loginInput"
+                                class="input"
+                                required
+                                minlength="3"
+                                maxlength="12"
+                                aria-errormessage="log1-errors"
+                            />
+                        </div>
+                        <div class="form-field-error" id="log1-errors" data-js-form-field-errors></div>
+                    </div>
+                    <div class="form-row">
+                        <label for="passwordInput">Пароль</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                name="pass1"
+                                id="passwordInput"
+                                class="input"
+                                required
+                                minlength="8"
+                                maxlength="16"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}"
+                                title="Пароль должен содержать от 8 до 16 символов, иметь как минимум 1 строчную и 1 заглавную латинские буквы, и одну цифру"
+                                aria-errormessage="pass1-errors"
+                            />
+                        </div>
+                        <div class="form-field-error" id="pass1-errors" data-js-form-field-errors></div>
+                    </div>
+                    <div class="form-row">
+                        <fieldset>
+                            <legend>Пол</legend>
+                            <span class="custom-radio" style="--someColor: purple;">
+                                <input 
+                                    type="radio"
+                                    name="sex"
+                                    id="sexMale"
+                                    class="custom-radio-native visually-hidden"
+                                    value="male"
+                                    required
+                                    aria-errormessage="sex-errors"
+                                />
+                                <div class="custom-radio-controls">
+                                    <label for="sexMale" class="custom-radio-marker">
+                                        <span class="custom-radio-marker-inner"></span>
+                                    </label>
+                                    <label for="sexMale" class="custom-radio-label">Мужской</label>
+                                </div>
+                            </span>
+                            <span class="custom-radio" style="--someColor: purple;">
+                                <input 
+                                    type="radio"
+                                    name="sex"
+                                    id="sexFemale"
+                                    class="custom-radio-native visually-hidden"
+                                    value="female"
+                                    required
+                                    aria-errormessage="sex-errors"
+                                />
+                                <div class="custom-radio-controls">
+                                    <label for="sexFemale" class="custom-radio-marker">
+                                        <span class="custom-radio-marker-inner"></span>
+                                    </label>
+                                    <label for="sexFemale" class="custom-radio-label">Женский</label>
+                                </div>
+                            </span>
+                            <div class="form-field-error" id="sex-errors" data-js-form-field-errors></div>
+                        </fieldset>
+                    </div>
+                    <div class="form-row">
+                        <span class="custom-checkbox frm-chckbx" id="custom-checkbox-1">
+                            <input 
+                                type="checkbox"
+                                name="field1"
+                                id="policyCheckbox"
+                                class="custom-checkbox-native visually-hidden"
+                                data-js-checkbox-native
+                                required
+                                aria-errormessage="agreement-errors"
+                            />
+                            <div class="custom-checkbox-controls">
+                                <label for="policyCheckbox" class="custom-checkbox-marker" role="checkbox" data-js-checkbox-control>
+                                    <span class="custom-checkbox-marker-inner">✔</span>
+                                </label>
+                                <label for="policyCheckbox" class="custom-checkbox-label">Принимаю политику конфиденциальности</label>
+                            </div>
+                        </span>
+                        <div class="form-field-error" id="agreement-errors" data-js-form-field-errors></div>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="form-submit-button">Зарегистрироваться</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 </body>
 </html>

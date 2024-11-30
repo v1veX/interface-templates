@@ -420,7 +420,7 @@ button {
     --someColor: purple;
 
     height: var(--input-height);
-    width: var(--input-width);
+    width: 100%;
     padding-inline: 15px;
     border: 1px solid var(--someColor);
     border-radius: 10px;
@@ -434,10 +434,6 @@ button {
 
 .input:focus-visible {
     outline: var(--someColor) solid 2px;
-}
-
-.input:invalid {
-    background-color: #efc4c4;
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -580,6 +576,7 @@ button {
     --dropdownOffsetGap: 5px;
 
     position: absolute;
+    z-index: 10;
     top: calc(100% + var(--dropdownOffsetGap));
     display: none;
     min-width: 200px;
@@ -594,4 +591,57 @@ button {
 
 .dropdown-item:not(:last-child) {
     margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+.form {
+    max-width: 450px;
+    margin-inline: auto;
+    padding: 20px;
+    border: 1px solid purple;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.form-title {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.form fieldset {
+    border: 1px solid purple;
+    border-radius: 10px;
+}
+
+.form-row:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.frm-chckbx {
+    --someColor: purple;
+}
+
+.form-field-error {
+    color: red;
+    font-size: 14px;
+}
+
+.form-submit-button {
+    height: var(--input-height);
+    background-color: purple;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    transition: background-color .3s;
+}
+
+.form-submit-button:hover {
+    background-color: #c14ac1;
 }
