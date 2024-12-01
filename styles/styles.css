@@ -438,7 +438,12 @@ button {
 
 /* ------------------------------------------------------------------------------------------- */
 
-.input-password {
+.switching-password-field {
+    position: relative;
+    display: inline-block;
+}
+
+.switching-password-field input {
     padding-right: var(--input-password-padding-right);
 }
 

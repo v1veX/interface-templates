@@ -1,40 +1,48 @@
-class PasswordInput {
-    _inputElement = null;
-    _toggleTypeButtonElement = null;
+class PasswordInputs {
+    _selectors = {
+        passwordField: '[data-js-password-field]',
+        passwordTypeToggler: '[data-js-password-toggler]',
+    }
 
     _inputTypes = {
         text: 'text',
         password: 'password',
     };
 
-    constructor(inputElementSelector) {
-        this._inputElement = document.querySelector(inputElementSelector);
-        this._toggleTypeButtonElement = this._inputElement.nextElementSibling;
-
+    constructor() {
         this._bindEvents();
     }
 
-    _toggleInputType() {
-        const isCurrentTypePassword = this._inputElement.getAttribute('type') == this._inputTypes.password
+    _toggleInputType(inputElement, togglerButtonElement) {
+        const isCurrentTypePassword = inputElement.getAttribute('type') == this._inputTypes.password
 
-        this._inputElement.setAttribute(
+        inputElement.setAttribute(
             'type',
             isCurrentTypePassword ? this._inputTypes.text : this._inputTypes.password
         );
 
-        this._toggleTypeButtonElement.classList.toggle(
+        togglerButtonElement.classList.toggle(
             'password-shown',
             isCurrentTypePassword
         );
     }
     
-    _onClick = () => {
-        this._toggleInputType();
+    _onClick = event => {
+        const { target } = event;
+
+        const togglerButton = target.closest(this._selectors.passwordTypeToggler);
+
+        if (!togglerButton) return;
+
+        const passwordField = togglerButton.closest(this._selectors.passwordField);
+        const passwordInput = passwordField.querySelector('input');
+
+        this._toggleInputType(passwordInput, togglerButton);
     }
 
     _bindEvents() {
-        this._toggleTypeButtonElement.addEventListener('click', this._onClick);
+        document.addEventListener('click', this._onClick);
     }
 }
 
-new PasswordInput('[data-js-password-input]');
+new PasswordInputs();
