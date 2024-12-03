@@ -690,21 +690,36 @@ dialog::backdrop {
 
 /* ------------------------------------------------------------------------------------------- */
 
-.tabs-controls {
+.tabs:not(:last-child) {
     margin-bottom: 30px;
 }
 
 .tabs-controls-list {
     display: flex;
-    column-gap: 20px;
+    overflow-x: auto;
+}
+
+.tabs-control {
+    min-width: 150px;
+    padding: 5px 25px;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    transition: background-color .3s;
+}
+
+.tabs-control:hover {
+    background-color: #d7d7d7;
 }
 
 .tabs-control.active {
-    border-bottom: 3px solid red;
+    background-color: #FFFFFF;
 }
 
 .tab {
     display: none;
+    min-height: 200px;
+    padding: 20px;
+    background-color: #FFFFFF;
 }
 
 .tab.active {
