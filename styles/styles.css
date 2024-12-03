@@ -687,3 +687,26 @@ dialog::backdrop {
     padding-inline: 20px;
     overflow: auto;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.tabs-controls {
+    margin-bottom: 30px;
+}
+
+.tabs-controls-list {
+    display: flex;
+    column-gap: 20px;
+}
+
+.tabs-control.active {
+    border-bottom: 3px solid red;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
