@@ -768,3 +768,15 @@ dialog::backdrop {
 .popup-content {
     padding: 0 30px 30px;
 }
+
+/* ------------------------------------------------------------------------------------------- */
+
+.tooltip {
+    position: fixed;
+    padding: 5px;
+    background-color: #001219;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    font-style: italic;
+}
